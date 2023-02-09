@@ -1,0 +1,340 @@
+*, *,::after, *::before {
+    box-sizing: border-box;
+}
+
+html, body {
+    font-size: 15px; 
+    margin: 0; 
+    padding: 0; 
+    height: 100%;
+    background-color: hsl(240, 78%, 98%);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.wrapper {
+    height:100%;width:100%;display: table;overflow:hidden;
+}
+
+.container {
+    display: table-cell;
+    background-image: url('./../images/bg-top.svg'), url('./../images/bg-bottom.svg');
+    background-repeat: no-repeat, no-repeat;
+    background-position: top right, bottom left;
+    width: 100%;
+    vertical-align: top;
+    padding: 0 1rem;
+}
+.content {
+    display: grid;
+    row-gap: 5rem;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(2, auto);
+    margin: 0 auto;
+}
+
+header {
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+    margin-top: 2rem;
+}
+
+.title {
+    padding: 0 0 1rem;
+}
+
+.our-pricing {
+    text-align: center;
+    color: hsl(233, 13%, 49%);
+    margin: 0;
+}
+
+.toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    color: hsl(234, 14%, 74%);
+    font-size: .9rem;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+  
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+  
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    right: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+  
+input:checked + .slider {
+    background: linear-gradient(90deg, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+}
+  
+input:checked + .slider:before {
+    -webkit-transform: translateX(-26px);
+    -ms-transform: translateX(-26px);
+    transform: translateX(-26px);
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+  
+.slider.round:before {
+    border-radius: 50%;
+}
+
+.cardsprices {
+    display: grid;
+    grid-template-columns: 20rem;
+    grid-column: 1 / -1;
+    grid-row: 2 / 3;
+    row-gap: 2rem;
+    margin: 0 auto 4rem;
+}
+
+.cardprice {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #fff;
+    border-radius: .6rem;
+    /* min-width: 20rem;
+    max-width: 23rem; */
+    width: 100%;
+    padding: 1.6rem;
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+}
+
+.cardprice__name {
+    font-size: 1.2rem;
+    color: hsl(233, 13%, 49%);
+    margin-bottom: 2rem;
+}
+
+.cardprice__price {
+    display: grid;
+    grid: 1fr / 1fr;
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.cardprice__price h3 {
+    font-size: 4rem;
+    margin: 0;
+    text-align: center;
+    color: hsl(232, 13%, 33%);
+}
+
+.cardprice__price h3::first-letter {
+    font-size: 2.5rem;
+}
+
+.cardprice__price__m {
+    grid-area: 1 / 1 / 2 / -1;
+    transition: all .3s ease;
+}
+
+.cardprice__price__y {
+    grid-area: 1 / 1 / 2 / -1;
+    transition: all .3s ease;
+}
+
+.hiddenPrice {
+    visibility: hidden;
+    animation: hidden .3s ease-in;
+}
+
+.showPrice {
+    visibility: visible;
+    animation: show .3s ease-in;
+}
+
+@keyframes hidden {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    25% {
+        transform: scale(1.1);
+        opacity: .8;
+
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: .5;
+
+    }
+
+    75% {
+        transform: scale(1.3);
+        opacity: .2;
+
+    }
+
+    100% {
+        transform: scale(1.4);
+        opacity: 0;
+
+    }
+}
+
+@keyframes show {
+    0% {
+        transform: scale(1.4);
+        opacity: 0;
+    }
+
+    25% {
+        transform: scale(1.3);
+        opacity: .2;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: .5;
+    }
+    75% {
+        transform: scale(1.1);
+        opacity: .8;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.cardprice__details {
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.cardprice__details ul {
+    padding: 0;
+    margin: 0;
+}
+
+.cardprice__details ul li{
+    text-align: center;
+    list-style: none;
+    color: hsl(233, 13%, 49%);
+    font-size: 1.2rem;
+    padding: 1.2rem 0;
+}
+
+.cardprice__details ul li:nth-child(odd) {
+    border-top: 1px solid hsl(232, 29%, 89%);
+    border-bottom: 1px solid hsl(232, 29%, 89%);
+}
+
+button {
+    all: unset;
+}
+
+.cardsprices .cardprice:nth-child(2) {
+    z-index: 3;
+}
+
+.cardsprices .cardprice:nth-child(even) {
+    background: linear-gradient(120deg, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+}
+
+.cardsprices .cardprice:nth-child(even) * {
+    color: #fff;
+}
+
+.cardsprices .cardprice:nth-child(even) .cardprice__details ul li:nth-child(odd) {
+    border-top: 1px solid hsla(232, 29%, 89%, 0.4);
+    border-bottom: 1px solid hsl(232, 29%, 89%, 0.4);
+}
+
+.cardprice__btn {
+    background: linear-gradient(90deg, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+    width: 100%;
+    height: 3rem;
+    color: #fff;
+    border-radius: .5rem;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: .9rem;
+    cursor: pointer;
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+    border: 1px solid transparent;
+    transition: all .3s ease;
+}
+
+.cardprice__btn:hover {
+    background: transparent;
+    border: 1px solid hsl(237, 63%, 64%);
+    color: hsl(237, 63%, 64%);
+}
+
+.cardsprices .cardprice:nth-child(even) .cardprice__btn {
+    background: #fff;
+    color: hsl(237, 63%, 64%);
+}
+
+.cardsprices .cardprice:nth-child(even) .cardprice__btn:hover {
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+@media screen and (min-width:1140px) {
+
+    .cardsprices {
+        grid-template-columns: repeat(3, 23rem);
+    }
+
+    .cardprice {
+        grid-row: 1 / 2;
+        width: 23rem;
+    }
+
+    .cardprice:nth-child(1) {
+        grid-column: 1 / 2;
+    }
+
+    .cardprice:nth-child(2) {
+        grid-column: 2 / 3;
+        transform: scaleY(1.07);
+    }
+
+    .cardprice:nth-child(3) {
+        grid-column: 3 / 4;
+    }
+}
