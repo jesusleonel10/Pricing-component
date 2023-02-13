@@ -21,7 +21,7 @@ html, body {
     background-repeat: no-repeat, no-repeat;
     background-position: top right, bottom left;
     width: 100%;
-    vertical-align: top;
+    vertical-align: middle;
     padding: 0 1rem;
 }
 .content {
